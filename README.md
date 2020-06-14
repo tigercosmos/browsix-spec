@@ -27,7 +27,7 @@ cd ../..
 mkdir build
 cd build
 ```
-6. Configure and make
+6. Configure and make. Note that you may set `CXX` to `g++-5` or `g++-6`.
 ```
 cmake .. -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="host;JSBackend" -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_INCLUDE_TESTS=OFF -DCLANG_INCLUDE_TESTS=OFF
 make -j4
@@ -41,7 +41,7 @@ Now we can use emscripten's C compiler `emcc` and C++ compiler `em++` to compile
 ## Compiling SPEC CPU2006 Benchmarks
 
 1. Install SPEC CPU2006 Benchmarks. All instructions __require__ that SPEC CPU2006 suite has been installed in `/spec-cpu2006/`.
-2. Set the values of `CC` and `CXX` variables in `browsix-asmjs.cfg` and `browsix-wasm.cfg` to absolute paths of `emcc` and `em++`. 
+2. Set the values of `CC` and `CXX` variables in `browsix-asmjs.cfg` and `browsix-wasm.cfg` to absolute paths of `emcc` and `em++`. Modify the values of `flagsurl0` and `flagsurl1` (You may refer [SPEC.ORG](https://www.spec.org/cpu2006/flags)).
 3. Copy `browsix-asmjs.cfg` and `browsix-wasm.cfg` to `/spec-cpu2006/config`.
 4. Compile `401.bzip2` benchmark to WebAssembly with `ref` dataset
 ```
